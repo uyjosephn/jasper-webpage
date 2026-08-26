@@ -13,13 +13,14 @@ CNAME          your custom domain, read by GitHub Pages
 
 ## Before deploying
 
-**Replace `REPLACE_WITH_YOUR_EMAIL`** in `privacy.html` and `support.html`.
-It appears four times. Consider a dedicated address rather than your personal
-one — the pages are public, and Apple requires the support address to work.
+Contact email is set to `uyjosephn@gmail.com` (6 places across `privacy.html`
+and `support.html`). To change it later:
 
 ```sh
-grep -rn REPLACE_WITH_YOUR_EMAIL .
+grep -rln uyjosephn@gmail.com . | xargs sed -i '' 's/uyjosephn@gmail.com/NEW/g'
 ```
+
+`CNAME` still needs your domain — see below.
 
 ## Deploying to GitHub Pages
 
