@@ -1,0 +1,124 @@
+/* Jasper's own palette, lifted from the app's theme/presets.ts so the site and
+   the app are recognisably the same thing. */
+:root {
+  --ground: #1c0f0a;
+  --surface: #2a1811;
+  --surface2: #331d14;
+  --line: #4a3226;
+  --ink: #f1e6da;
+  --ink-dim: #b3a08d;
+  --ink-faint: #7a6a5c;
+  --accent: #eeb05a;
+  --positive: #7a9b6e;
+  --display: Futura, "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
+  --mono: Menlo, ui-monospace, SFMono-Regular, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+nav {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(28, 15, 10, 0.93);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+nav a { color: var(--ink-dim); text-decoration: none; font-size: 14px; }
+nav a:hover { color: var(--ink); }
+nav .links { display: flex; gap: 20px; }
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.4px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand span { color: var(--accent); }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(34px, 7vw, 52px); margin: 0 0 18px; letter-spacing: -0.5px; }
+h2 { font-size: 24px; margin: 52px 0 14px; }
+h3 { font-size: 17px; margin: 30px 0 8px; }
+p { margin: 0 0 16px; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 600; }
+a { color: var(--accent); }
+.lede { font-size: 19px; line-height: 1.6; color: var(--ink-dim); margin-bottom: 28px; }
+.small { font-size: 13px; color: var(--ink-faint); }
+.updated { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); margin-bottom: 32px; }
+
+header { padding: 72px 0 12px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 14px 0;
+}
+.card.quiet { background: var(--surface2); }
+.label {
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.grid { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+.card h3 { margin: 0 0 6px; }
+.card p:last-child { margin-bottom: 0; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--ground);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 4px 11px;
+  margin-bottom: 16px;
+}
+
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0 8px; font-size: 15px; }
+th, td { text-align: left; padding: 11px 8px; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+td:not(:first-child) { font-family: var(--mono); font-size: 14px; color: var(--ink); }
+td:first-child { color: var(--ink-dim); }
+.yes { color: var(--positive); }
+
+ul { color: var(--ink-dim); padding-left: 20px; }
+li { margin-bottom: 8px; }
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 72px;
+  padding: 28px 0 56px;
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+footer a { color: var(--ink-dim); text-decoration: none; margin-right: 18px; }
+footer a:hover { color: var(--ink); }

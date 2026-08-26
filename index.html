@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jasper — a budget that stays on your phone</title>
+<meta name="description" content="A local-first budgeting app for iPhone. No account, no analytics, no servers. Your ledger lives on your device and nowhere else.">
+<meta name="theme-color" content="#1c0f0a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">Jasper<span>.</span></a>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <span class="pill">iPhone · Coming soon</span>
+  <h1>A budget that stays on your phone.</h1>
+  <p class="lede">
+    Jasper is a personal ledger and forecast for iPhone. It has no account to create, no
+    analytics, and no server of ours for your money to sit on. Everything you record lives in a
+    database on your device — and nowhere else.
+  </p>
+</header>
+
+<main class="wrap">
+
+  <h2 id="how">Plans and records are different things</h2>
+  <p>
+    Most budgeting apps blur the two: you type a number and it immediately counts. Jasper keeps
+    them apart, because the difference is the whole point of a forecast.
+  </p>
+  <p>
+    Everything starts as a <strong>plan</strong> — rent on the 1st, a paycheque on the 15th, the
+    card bill you know is coming. Nothing moves your balance. When the money actually leaves your
+    account, you <strong>lock</strong> the entry, and that is the moment it becomes a record.
+  </p>
+  <p>
+    So the balance you see is always explained by something you confirmed, and the months ahead
+    are honestly labelled as predictions. Locking is also what makes a month
+    <strong>closeable</strong>: once everything in it is settled, you close it and it stops moving.
+  </p>
+
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>A ledger, by half-month or month</h3>
+      <p class="small">Paid twice a month? The ledger splits that way too, instead of pretending the calendar month is the unit you live in.</p>
+    </div>
+    <div class="card">
+      <h3>Two years ahead</h3>
+      <p class="small">Every recurring rule projected forward, with each month marked sunny, cloudy or rainy against a balance you say you're comfortable with.</p>
+    </div>
+    <div class="card">
+      <h3>Credit cards that bill like real ones</h3>
+      <p class="small">Statement close and due dates, so a purchase lands on the bill it actually lands on. Itemise the charges you care about; ignore the rest.</p>
+    </div>
+    <div class="card">
+      <h3>Debts with real amortisation</h3>
+      <p class="small">Rate, payment and schedule — see what an extra payment removes in months and in interest.</p>
+    </div>
+    <div class="card">
+      <h3>Savings goals that count themselves</h3>
+      <p class="small">Point a goal at an account. Every savings transfer you lock counts toward it, including the recurring ones.</p>
+    </div>
+    <div class="card">
+      <h3>Quick budgets</h3>
+      <p class="small">Plan a set of costs — a trip, a birthday, a hospital stay — then record what each really came to and sweep what's left into savings.</p>
+    </div>
+    <div class="card">
+      <h3>Closing the month</h3>
+      <p class="small">Settle every entry, compare against the bank, and record the difference rather than papering over it. Then the month is done.</p>
+    </div>
+    <div class="card">
+      <h3>More than one currency</h3>
+      <p class="small">Separate books per currency, each with its own accounts, cadence and forecast. No conversion, no guessing at rates.</p>
+    </div>
+  </div>
+
+  <h2>Your data is yours, structurally</h2>
+  <p>
+    This isn't a promise about how we behave — it's a description of how the app is built. There is
+    no account system, so there is nothing to sign in to. There is no analytics SDK and no
+    advertising SDK. There is no server that holds your ledger, because there is no server.
+  </p>
+  <p>
+    Your data lives in a SQLite database in the app's own storage on your phone. You can export
+    every table of it to a plain CSV file at any time, and import it back. Deleting the app deletes
+    the data with it — so keep an export somewhere if you care about it.
+  </p>
+  <p class="small">
+    The one network request Jasper makes is checking for an app update on launch. It sends the app
+    version and platform. It never sends anything you record. See the
+    <a href="privacy.html">privacy policy</a> for the specifics.
+  </p>
+
+  <h2 id="pricing">Pricing</h2>
+  <p>
+    Jasper is free to use, properly — not a demo with the useful parts removed. Plus is a
+    <strong>one-time purchase</strong>, not a subscription: budgeting software that charges rent
+    forever is a strange thing to trust with your budget.
+  </p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>&nbsp;</th><th>Free</th><th>Plus</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Transactions, locking, closing months</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
+        <tr><td>Accounts</td><td>3</td><td>Unlimited</td></tr>
+        <tr><td>Goals</td><td>2</td><td>Unlimited</td></tr>
+        <tr><td>Quick budgets</td><td>2</td><td>Unlimited</td></tr>
+        <tr><td>Recurring expenses</td><td>5</td><td>Unlimited</td></tr>
+        <tr><td>Your own categories</td><td>3</td><td>Unlimited</td></tr>
+        <tr><td>Currencies</td><td>1</td><td>Unlimited</td></tr>
+        <tr><td>Forecast horizon</td><td>12 months</td><td>24 months</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card quiet">
+    <div class="label">Worth saying plainly</div>
+    <p class="small">
+      Recurring <em>income</em> is never limited — a forecast without what arrives isn't a
+      forecast. Neither is how much you record: no cap on transactions, on locking, or on how many
+      months of history you keep. Limits only ever apply to how many <em>things</em> you set up.
+    </p>
+    <p class="small">
+      And nothing you created is ever deleted to enforce a limit. If you're above one, you keep
+      everything — you simply can't add more until you're back under.
+    </p>
+  </div>
+
+  <h2>Getting it</h2>
+  <p>
+    Jasper is in testing on TestFlight ahead of an App Store release. If you'd like to try it,
+    <a href="support.html">get in touch</a>.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <div style="margin-top:12px">© 2026 Jasper. Made for people who want to know where their money is going.</div>
+  </div>
+</footer>
+
+</body>
+</html>
