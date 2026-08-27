@@ -373,3 +373,52 @@ footer a:hover { color: var(--ink); }
   color: var(--accent);
 }
 .price-note { color: var(--ink-faint); font-size: 13px; line-height: 1.5; margin: 8px 0 0; }
+
+
+/* --- entry states, for the training page ------------------------------- */
+.state {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.state:last-of-type { border-bottom: 0; }
+.state h3 { margin: 0 0 6px; }
+.state p { margin: 0 0 8px; font-size: 15px; }
+.state p:last-child { margin-bottom: 0; }
+
+/* The Ledger's own chips, same shapes and colours as the app draws. */
+.chip {
+  width: 24px; height: 24px; border-radius: 6px;
+  display: grid; place-items: center; margin-top: 3px;
+}
+.chip.locked { background: var(--accent); }
+.chip.locked svg { width: 13px; height: 13px; }
+.chip.planned { border: 1.5px dashed var(--line); }
+.chip.drag { color: var(--ink-faint); }
+.chip.drag svg { width: 17px; height: 17px; }
+
+.can { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.can span {
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-faint);
+}
+.can .yes { color: var(--positive); border-color: rgba(122,155,110,.45); }
+.can .no  { color: var(--ink-faint); opacity: .65; }
+
+.flow {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 16px; margin: 18px 0;
+  background: var(--surface2); border-radius: 12px;
+}
+.flow b { font-family: var(--display); font-size: 13px; color: var(--ink); font-weight: 700; }
+.flow i { color: var(--accent); font-style: normal; font-size: 15px; }
+.flow small { color: var(--ink-faint); font-size: 12px; display: block; }

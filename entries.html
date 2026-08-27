@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Understanding ledger entries — Jasper</title>
+<meta name="description" content="Every entry in Jasper is in one of three states: planned, recorded, or locked. Here is what each means and what you can do with it.">
+<meta name="theme-color" content="#1c0f0a">
+<link rel="canonical" href="https://jasperbudget.com/entries.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jasper">
+<meta property="og:title" content="Understanding ledger entries — Jasper">
+<meta property="og:description" content="Every entry is planned, recorded, or locked. Here is what each means.">
+<meta property="og:url" content="https://jasperbudget.com/entries.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">Jasper<span>.</span></a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Understanding ledger entries</h1>
+  <p class="lede">
+    Every line in your Ledger is in one of three states. Knowing which is which explains almost
+    everything about how Jasper behaves — why a balance did not move, why a row will not drag,
+    why some entries look faded.
+  </p>
+</header>
+
+<main class="wrap">
+
+  <h2>The three states</h2>
+
+  <div class="state">
+    <span class="chip planned"></span>
+    <div>
+      <h3>Planned</h3>
+      <p>
+        A prediction. It comes from something you set up — a recurring rule, a credit card's
+        monthly budget, a payment on a debt schedule — and Jasper is showing you that it is
+        coming. <strong>It is not in your ledger yet.</strong> Nothing about it is stored, which
+        is why it is drawn faded with an empty dashed marker.
+      </p>
+      <div class="can">
+        <span class="no">Cannot reorder</span>
+        <span class="no">Cannot edit</span>
+        <span class="no">No effect on your balance</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <span class="chip drag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg></span>
+    <div>
+      <h3>Recorded</h3>
+      <p>
+        <strong>Press a planned entry and it becomes a recorded one.</strong> That press is you
+        saying "yes, this one is real" — Jasper writes it into your ledger as an entry of your
+        own. A drag handle appears, and from that moment you can change the amount, the label
+        and the date, or delete it if it turned out not to happen.
+      </p>
+      <p>
+        Your balance still has not moved. A recorded entry is something you expect, written
+        down — not something that happened.
+      </p>
+      <div class="can">
+        <span class="yes">Reorder</span>
+        <span class="yes">Edit</span>
+        <span class="yes">Delete</span>
+        <span class="no">No effect on your balance</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <span class="chip locked"><svg viewBox="0 0 24 24" fill="none" stroke="#1c0f0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14v10H5z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+    <div>
+      <h3>Locked</h3>
+      <p>
+        The money moved. <strong>Locking is the only thing in Jasper that changes a balance</strong>
+        — the moment you lock an entry, your account goes up or down by that amount. That is why
+        it is marked in the accent colour and stands out down the page: at a glance you can see
+        what has really happened and what is still expected.
+      </p>
+      <p>
+        A locked entry cannot be edited or reordered, because it is no longer a plan — it is a
+        record. If you locked it by mistake, press it and unlock it; the balance moves back.
+      </p>
+      <div class="can">
+        <span class="no">Cannot reorder</span>
+        <span class="no">Cannot edit</span>
+        <span class="yes">Moves your balance</span>
+        <span class="yes">Can be unlocked</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>How an entry travels</h2>
+
+  <div class="flow">
+    <b>Planned</b><i>&rarr;</i>
+    <b>Recorded</b><i>&rarr;</i>
+    <b>Locked</b><i>&rarr;</i>
+    <b>Closed</b>
+  </div>
+  <p class="small">
+    Press to record it · lock it when the money moves · close the month when everything in it is
+    settled. Closing is permanent — a closed month can never be changed again, which is what
+    makes it worth something.
+  </p>
+
+  <h2>Why it works this way</h2>
+  <p>
+    A forecast is only useful if you can tell a prediction from a fact. If typing a number
+    immediately counted, then every month ahead would be a mixture of things that happened and
+    things you hoped, with no way to separate them — and the balance at the end would mean
+    nothing in particular.
+  </p>
+  <p>
+    Keeping them apart costs you one press. In exchange, the balance Jasper shows is always
+    explained by entries you personally confirmed, and the months ahead are honestly labelled as
+    what they are.
+  </p>
+
+  <h2>Common questions</h2>
+
+  <h3>I added a transaction and my balance did not change.</h3>
+  <p>
+    It is recorded, not locked. Press it and lock it, and the balance will move. This is the
+    single most common surprise for new users, and it is deliberate.
+  </p>
+
+  <h3>Why can I not drag this entry?</h3>
+  <p>
+    Only recorded entries reorder. A planned one has nothing stored to move — press it first. A
+    locked one is a record of something that happened, and its position is not yours to
+    rearrange.
+  </p>
+
+  <h3>Some entries look faded.</h3>
+  <p>
+    Those are planned. They come from your recurring rules and schedules, and they will keep
+    appearing every period until you press them.
+  </p>
+
+  <h3>I see three identical entries in one half.</h3>
+  <p>
+    That will be a weekly rule firing several times inside the same fortnight. Jasper shows the
+    date beside each one — <em>Acorns 11/16</em>, <em>Acorns 11/23</em> — so you can tell them
+    apart.
+  </p>
+
+  <h3>Can I get a closed month back?</h3>
+  <p>
+    No. Closing is permanent by design: it is the point at which you and your bank agreed, and a
+    record that can be reopened is not really a record. Lock everything and check the figures
+    before you close.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">Home</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <div style="margin-top:12px">© 2026 Jasper.</div>
+  </div>
+</footer>
+
+</body>
+</html>
