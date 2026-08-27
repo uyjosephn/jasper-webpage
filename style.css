@@ -347,3 +347,29 @@ footer a:hover { color: var(--ink); }
 .wx-key { display: flex; gap: 18px; flex-wrap: wrap; padding: 2px 4px 4px; }
 .wx-key span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
 .wx-key .wx { width: 17px; height: 17px; }
+
+
+/* --- price ------------------------------------------------------------- */
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 6px 0 4px;
+}
+.price .amount {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: -1px;
+  color: var(--ink);
+  line-height: 1;
+}
+.price .once {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.price-note { color: var(--ink-faint); font-size: 13px; line-height: 1.5; margin: 8px 0 0; }
