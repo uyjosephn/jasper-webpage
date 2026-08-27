@@ -13,11 +13,11 @@ CNAME          your custom domain, read by GitHub Pages
 
 ## Before deploying
 
-Contact email is set to `uyjosephn@gmail.com` (6 places across `privacy.html`
+Contact email is set to `support@jasperbudget.com` (3 places across `privacy.html`
 and `support.html`). To change it later:
 
 ```sh
-grep -rln uyjosephn@gmail.com . | xargs sed -i '' 's/uyjosephn@gmail.com/NEW/g'
+grep -rln support@jasperbudget.com . | xargs sed -i '' 's/support@jasperbudget.com/NEW/g'
 ```
 
 `CNAME` still needs your domain — see below.
