@@ -226,6 +226,33 @@ footer a:hover { color: var(--ink); }
 }
 
 
+/* --- hero -------------------------------------------------------------- */
+.hero-mark { width: 62px; height: 62px; border-radius: 14px; display: block; margin-bottom: 22px; }
+
+/* --- screenshots ------------------------------------------------------- */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 22px 0 8px;
+}
+@media (max-width: 620px) { .shots { grid-template-columns: 1fr 1fr; gap: 12px; } }
+.shot { margin: 0; }
+.shot img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.shot figcaption {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+
 /* The forecast strip: months as bars, each carrying its own weather. Same
    sunny / cloudy / rainy language the app uses on the Dashboard. */
 .forecast { padding: 6px 4px 4px; }
@@ -251,12 +278,69 @@ footer a:hover { color: var(--ink); }
 .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
 
 
-/* The app's WeatherIcon, drawn at the size the strip needs. `currentColor`
-   lets each row's status colour the glyph without a second rule per state. */
-.wx { width: 20px; height: 20px; display: block; }
-.fc-wx { display: grid; place-items: center; }
-.sunny  .fc-wx, .fc-legend .sunny  { color: var(--positive); }
-.cloudy .fc-wx, .fc-legend .cloudy { color: var(--accent); }
-.rainy  .fc-wx, .fc-legend .rainy  { color: #d97a3b; }
-.fc-legend span { align-items: center; }
-.fc-legend .wx { width: 15px; height: 15px; }
+
+
+/* ---------------------------------------------------------------------------
+   The Dashboard's forecast cards.
+
+   Rebuilt from components/ForecastStrip.tsx: 108px wide, weather at the top,
+   the month, then beginning and ending balances. Colours are the app's own
+   WEATHER tokens — a yellow sun, a slate cloud, a darker slate rain — not a
+   traffic-light palette invented for the web.
+   --------------------------------------------------------------------------- */
+.strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 4px 14px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.strip::-webkit-scrollbar { height: 6px; }
+.strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+.fcard {
+  flex: none;
+  width: 108px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 10px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+.fcard .wx { width: 26px; height: 26px; margin: 0 auto 6px; display: block; }
+.fcard .fm {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.fcard dl { margin: 0; display: grid; gap: 3px; }
+.fcard .r { display: flex; justify-content: space-between; gap: 4px; align-items: baseline; }
+.fcard dt {
+  font-family: var(--display);
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.fcard dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+/* Below zero uses the fixed semantic red, never the theme accent — being
+   overdrawn means the same thing in every currency. */
+.fcard dd.neg { color: #d97a3b; }
+
+.sunny  .wx { color: #f5c518; }
+.cloudy .wx { color: #9aa5b1; }
+.rainy  .wx { color: #64707c; }
+
+.wx-key { display: flex; gap: 18px; flex-wrap: wrap; padding: 2px 4px 4px; }
+.wx-key span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
+.wx-key .wx { width: 17px; height: 17px; }
