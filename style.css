@@ -122,3 +122,105 @@ footer {
 }
 footer a { color: var(--ink-dim); text-decoration: none; margin-right: 18px; }
 footer a:hover { color: var(--ink); }
+
+
+/* ---------------------------------------------------------------------------
+   The ledger figure.
+
+   A drawing, not a screenshot: it exists to make one idea visible — that a
+   planned row and a locked row are different things, and only the locked ones
+   have moved the balance. Built from the same tokens the app uses, so it reads
+   as Jasper rather than as generic marketing furniture.
+   --------------------------------------------------------------------------- */
+.figure {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 8px;
+  margin: 22px 0 10px;
+  overflow: hidden;
+}
+.fig-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.fig-month {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.fig-bal { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.row:last-child { border-bottom: 0; }
+.row .name { flex: 1; min-width: 0; font-size: 15px; }
+.row .amt { font-family: var(--mono); font-size: 14px; white-space: nowrap; }
+
+/* A locked row: it happened, and the balance reflects it. */
+.row.locked .name { color: var(--ink); }
+.row.locked .amt { color: var(--ink); }
+.lock {
+  width: 22px; height: 22px; flex: none;
+  border-radius: 6px;
+  background: var(--accent);
+  display: grid; place-items: center;
+}
+.lock svg { width: 12px; height: 12px; display: block; }
+
+/* A planned row: still only expected, drawn lighter and outlined. */
+.row.planned .name { color: var(--ink-faint); }
+.row.planned .amt { color: var(--ink-faint); }
+.row.planned .lock {
+  background: transparent;
+  border: 1.5px dashed var(--line);
+}
+
+.fig-note {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 13px 14px 6px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.fig-key { display: flex; gap: 18px; flex-wrap: wrap; padding: 4px 14px 12px; }
+.fig-key span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
+.swatch { width: 12px; height: 12px; border-radius: 4px; flex: none; }
+.swatch.on { background: var(--accent); }
+.swatch.off { border: 1.5px dashed var(--line); }
+
+/* --- hero -------------------------------------------------------------- */
+.hero-mark { width: 62px; height: 62px; border-radius: 14px; display: block; margin-bottom: 22px; }
+
+/* --- screenshots ------------------------------------------------------- */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 22px 0 8px;
+}
+@media (max-width: 620px) { .shots { grid-template-columns: 1fr 1fr; gap: 12px; } }
+.shot { margin: 0; }
+.shot img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.shot figcaption {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
