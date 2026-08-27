@@ -231,7 +231,7 @@ footer a:hover { color: var(--ink); }
 .forecast { padding: 6px 4px 4px; }
 .fc-row {
   display: grid;
-  grid-template-columns: 62px 1fr 92px;
+  grid-template-columns: 52px 26px 1fr 92px;
   align-items: center;
   gap: 12px;
   padding: 9px 12px;
@@ -249,3 +249,14 @@ footer a:hover { color: var(--ink); }
 .fc-legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 8px 16px 12px; }
 .fc-legend span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
 .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+
+/* The app's WeatherIcon, drawn at the size the strip needs. `currentColor`
+   lets each row's status colour the glyph without a second rule per state. */
+.wx { width: 20px; height: 20px; display: block; }
+.fc-wx { display: grid; place-items: center; }
+.sunny  .fc-wx, .fc-legend .sunny  { color: var(--positive); }
+.cloudy .fc-wx, .fc-legend .cloudy { color: var(--accent); }
+.rainy  .fc-wx, .fc-legend .rainy  { color: #d97a3b; }
+.fc-legend span { align-items: center; }
+.fc-legend .wx { width: 15px; height: 15px; }
