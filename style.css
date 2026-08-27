@@ -337,9 +337,12 @@ footer a:hover { color: var(--ink); }
    overdrawn means the same thing in every currency. */
 .fcard dd.neg { color: #d97a3b; }
 
+/* The app's WEATHER tokens exactly (theme/presets.ts): a warm yellow sun, a
+   blue cloud, a neutral grey rain. Three hues rather than three lightnesses,
+   so they stay apart at icon size and for colour-blind readers. */
 .sunny  .wx { color: #f5c518; }
-.cloudy .wx { color: #9aa5b1; }
-.rainy  .wx { color: #64707c; }
+.cloudy .wx { color: #7fb0d8; }
+.rainy  .wx { color: #8b9196; }
 
 .wx-key { display: flex; gap: 18px; flex-wrap: wrap; padding: 2px 4px 4px; }
 .wx-key span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
