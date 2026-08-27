@@ -224,3 +224,28 @@ footer a:hover { color: var(--ink); }
   line-height: 1.45;
   color: var(--ink-faint);
 }
+
+
+/* The forecast strip: months as bars, each carrying its own weather. Same
+   sunny / cloudy / rainy language the app uses on the Dashboard. */
+.forecast { padding: 6px 4px 4px; }
+.fc-row {
+  display: grid;
+  grid-template-columns: 62px 1fr 92px;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+}
+.fc-month { font-family: var(--display); font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-faint); }
+.fc-bar { height: 12px; border-radius: 6px; background: var(--surface2); overflow: hidden; }
+.fc-bar i { display: block; height: 100%; border-radius: 6px; }
+.fc-amt { font-family: var(--mono); font-size: 13px; text-align: right; }
+.sunny  i { background: var(--positive); }
+.cloudy i { background: var(--accent); }
+.rainy  i { background: #d97a3b; }
+.sunny  .fc-amt { color: var(--ink); }
+.cloudy .fc-amt { color: var(--accent); }
+.rainy  .fc-amt { color: #d97a3b; }
+.fc-legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 8px 16px 12px; }
+.fc-legend span { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-faint); }
+.dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
