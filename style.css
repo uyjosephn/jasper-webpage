@@ -422,3 +422,148 @@ footer a:hover { color: var(--ink); }
 .flow b { font-family: var(--display); font-size: 13px; color: var(--ink); font-weight: 700; }
 .flow i { color: var(--accent); font-style: normal; font-size: 15px; }
 .flow small { color: var(--ink-faint); font-size: 12px; display: block; }
+
+/* ---------------------------------------------------------------------------
+   The rest of it — schedule, goals, progress
+   Built in HTML rather than photographed: it stays sharp on every display,
+   follows the page's own colours, and a screen reader can read the figures
+   instead of an alt attribute paraphrasing them.
+   --------------------------------------------------------------------------- */
+
+.fig-title {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 34px 0 6px;
+  color: var(--ink);
+}
+
+/* Amortisation schedule -------------------------------------------------- */
+
+.sched {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+  /* Wide content scrolls inside its own box; the page never scrolls sideways. */
+  min-width: 420px;
+}
+.sched th {
+  text-align: right;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.sched th:first-child,
+.sched td:first-child { text-align: left; }
+.sched td {
+  text-align: right;
+  padding: 10px 14px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.sched tr:last-child td { border-bottom: 0; }
+.sched .int { color: #d97a3b; }
+
+/* The statement row: the one figure the whole table is worked out from. */
+.sched .stmt td { background: var(--surface2); color: var(--accent); }
+/* Struck rather than zeroed — showing 0.00 would claim a payment was made. */
+.sched .none { color: var(--ink-faint); }
+
+.fig-note { color: var(--ink-faint); margin-top: 2px; }
+
+/* Goals ------------------------------------------------------------------ */
+
+.goal { padding: 13px 14px; border-bottom: 1px solid var(--line); }
+.goal:last-child { border-bottom: 0; }
+.goal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+}
+.goal .name { font-size: 15px; color: var(--ink); }
+.goal .amt { font-family: var(--mono); font-size: 13px; color: var(--ink-dim); }
+.bar {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* Progress track --------------------------------------------------------- */
+
+.track {
+  display: flex;
+  gap: 3px;
+  padding: 14px 14px 12px;
+}
+.seg {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 11px 4px;
+  border-radius: 4px;
+  background: var(--surface2);
+  color: var(--ink-faint);
+  /* Never both filled and outlined: accent text on an accent fill is invisible,
+     which is exactly the bug this rule exists to prevent. */
+}
+.seg.on { background: var(--accent); color: var(--ground); }
+.seg.target { border: 1px solid var(--accent); color: var(--accent); }
+
+.steps { border-top: 1px solid var(--line); }
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.step:last-child { border-bottom: 0; }
+/* Done reads as settled, so what is left is the loudest thing on the card. */
+.step.done { color: var(--ink-faint); }
+.step .of {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+.tick {
+  width: 18px; height: 18px; flex: none;
+  border-radius: 5px;
+  background: var(--positive);
+  position: relative;
+}
+.tick::after {
+  content: "";
+  position: absolute;
+  left: 5px; top: 3px;
+  width: 5px; height: 9px;
+  border: solid var(--ground);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.tick.off { background: none; border: 1.5px solid var(--line); }
+.tick.off::after { display: none; }
+
+@media (max-width: 520px) {
+  .seg { font-size: 9px; letter-spacing: 0.2px; padding: 10px 2px; }
+}
